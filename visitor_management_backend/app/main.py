@@ -10,8 +10,7 @@ from app.models import user, visitor, visit_request, notification, blacklist
 from app.api import auth, admin, resident, security, visitor as visitor_api
 from app.config import settings
 
-# Get port from environment variable (Render provides this)
-port = int(os.environ.get("PORT", 8000))
+PORT = int(os.environ.get("PORT", 8000))
 
 # Create database tables
 user.Base.metadata.create_all(bind=engine)
@@ -76,7 +75,6 @@ if __name__ == "__main__":
     uvicorn.run(
         "app.main:app",
         host="0.0.0.0",
-        port=port,
+        port=PORT,
         reload=False,
-        log_level="info"
     )
