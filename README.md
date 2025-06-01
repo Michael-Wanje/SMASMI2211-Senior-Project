@@ -10,7 +10,7 @@ This project is a mobile-first, digital visitor management solution designed for
 
 ```
 FinalSeniorProject/
-├── visitor_management_system/          # Flutter Frontend
+├── visitor_management_frontend/          # Flutter Frontend
 │   ├── lib/
 │   ├── android/
 │   ├── ios/
