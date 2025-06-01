@@ -80,3 +80,5 @@ if __name__ == "__main__":
         port=PORT,
         reload=False,
     )
+
+    app_handler = app
