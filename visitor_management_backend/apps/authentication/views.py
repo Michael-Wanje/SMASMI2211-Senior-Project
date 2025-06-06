@@ -183,7 +183,7 @@ def request_password_reset(request):
             
             # Send reset email
             try:
-                reset_url = f"http://localhost:3000/reset-password/{token}"  # Adjust URL as needed
+                reset_url = f"http://localhost:3000/reset-password/{token}"  
                 
                 send_mail(
                     subject='Password Reset Request',
