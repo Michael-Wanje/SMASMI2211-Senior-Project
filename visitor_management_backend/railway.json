@@ -4,7 +4,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "gunicorn backend.wsgi:application --bind 0.0.0.0:8080",
+    "startCommand": "gunicorn visitor_management.wsgi:application --bind 0.0.0.0:8080",
     "healthcheckPath": "/admin/"
   }
 }
