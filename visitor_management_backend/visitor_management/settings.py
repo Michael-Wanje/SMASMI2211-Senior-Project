@@ -14,6 +14,7 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-change-me')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['*']
+PORT = int(os.environ.get('PORT', 8000))
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 # Application definition
@@ -95,8 +96,9 @@ DATABASES = {
 
 # Override with Railway's DATABASE_URL if it exists
 if 'DATABASE_URL' in os.environ:
-    DATABASES['default'] = dj_database_url.parse(os.environ['DATABASE_URL'])
-                                                 
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }                                                 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -121,10 +123,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
